@@ -77,7 +77,7 @@ public class RepoTest {
         Assertions.assertThat(squib.toString()).contains("SQUIB");  //tipo enumerado
     }
 
-    /**
+    /*
      * Completa la definicion y el mapping
      * de la clase Order a la tabla t_orders
      * El id de esta clase ha de seguir una estrategia
