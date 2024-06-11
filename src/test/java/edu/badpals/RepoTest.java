@@ -1,7 +1,7 @@
 package edu.badpals;
 
 import edu.badpals.domain.MagicalItem;
-//import edu.badpals.domain.Order;
+import edu.badpals.domain.Order;
 import edu.badpals.domain.Wizard;
 //import edu.badpals.repositorio.Repositorio;
 import io.quarkus.test.junit.QuarkusTest;
@@ -77,12 +77,12 @@ public class RepoTest {
         Assertions.assertThat(squib.toString()).contains("SQUIB");  //tipo enumerado
     }
 
-    /*
+    /**
      * Completa la definicion y el mapping
      * de la clase Order a la tabla t_orders
      * El id de esta clase ha de seguir una estrategia
      * Identity
-
+    **/
 
 
     @Test
