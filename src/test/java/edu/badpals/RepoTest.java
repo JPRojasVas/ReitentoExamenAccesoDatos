@@ -114,7 +114,7 @@ public class RepoTest {
     /**
      * Implementa el metodo loadWizard del repositorio
      * que devuelve un Optional del mago/a con el nombre indicado
-
+    **/
 
 
     @Test
