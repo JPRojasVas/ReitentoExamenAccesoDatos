@@ -3,7 +3,7 @@ package edu.badpals;
 import edu.badpals.domain.MagicalItem;
 import edu.badpals.domain.Order;
 import edu.badpals.domain.Wizard;
-//import edu.badpals.repositorio.Repositorio;
+import edu.badpals.repositorio.Repositorio;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
@@ -101,7 +101,7 @@ public class RepoTest {
      * Utiliza el código:
      * @Inject
      * Repositorio repo;
-
+    **/
 
     @Inject
     Repositorio repo;
