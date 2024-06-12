@@ -16,7 +16,7 @@ import java.util.Optional;
 @ApplicationScoped
 public class Repositorio {
 
-    public Optional<Wizard> loadWizard(String name){
+    public Optional<Wizard> loadWizard(String name) {
 
         Optional<Wizard> wizard = Wizard.find("name = ?1", name).firstResultOptional();
         return wizard;
@@ -24,20 +24,20 @@ public class Repositorio {
     }
 
 
-    public Optional<MagicalItem> loadItem(String name){
+    public Optional<MagicalItem> loadItem(String name) {
 
         Optional<MagicalItem> item = MagicalItem.find("name = ?1", name).firstResultOptional();
         return item;
     }
 
-    public Optional<MagicalItem> loadItem(MagicalItem magicalItem){
+    public Optional<MagicalItem> loadItem(MagicalItem magicalItem) {
 
         List<MagicalItem> items = MagicalItem.listAll();
 
         MagicalItem itemFilter = null;
 
-        for (MagicalItem item : items){
-            if (item.getName().equals(magicalItem.getName()) && item.getQuality() == magicalItem.getQuality() && item.getType().equals(magicalItem.getType())){
+        for (MagicalItem item : items) {
+            if (item.getName().equals(magicalItem.getName()) && item.getQuality() == magicalItem.getQuality() && item.getType().equals(magicalItem.getType())) {
                 itemFilter = item;
             }
 
@@ -47,14 +47,14 @@ public class Repositorio {
 
     }
 
-    public List<MagicalItem> loadItems(String name){
+    public List<MagicalItem> loadItems(String name) {
 
         List<MagicalItem> items = MagicalItem.listAll();
         List<MagicalItem> filterItems = new ArrayList<>();
 
-        for (MagicalItem item: items){
+        for (MagicalItem item : items) {
 
-            if (item.getName().equals(name)){
+            if (item.getName().equals(name)) {
                 filterItems.add(item);
             }
         }
@@ -63,14 +63,14 @@ public class Repositorio {
     }
 
     @Transactional
-    public Optional<Order> placeOrder(String wizard, String magicalItem){
+    public Optional<Order> placeOrder(String wizard, String magicalItem) {
 
         Optional<Wizard> mago = Wizard.findByIdOptional(wizard);
         Optional<MagicalItem> objeto = MagicalItem.find("name = ?1", magicalItem).firstResultOptional();
 
         Order ordenFiltrada = null;
 
-        if (mago.isPresent() && objeto.isPresent() && mago.get().getPerson().compareTo(WizardPerson.MUDBLOOD) != 0){
+        if (mago.isPresent() && objeto.isPresent() && mago.get().getPerson().compareTo(WizardPerson.MUDBLOOD) != 0) {
 
             Order order = new Order(loadWizard(wizard).get(), loadItem(magicalItem).get());
 
@@ -83,7 +83,7 @@ public class Repositorio {
     }
 
     @Transactional
-    public MagicalItem createItem(String name, int quality, String type){
+    public MagicalItem createItem(String name, int quality, String type) {
 
         MagicalItem item = new MagicalItem(name, quality, type);
         item.persist();
@@ -91,7 +91,32 @@ public class Repositorio {
 
     }
 
+    /*
+    @Transactional
+    public void createItems(List<MagicalItem> listaItems){
 
+        for (MagicalItem item: listaItems) {
+
+            item.persist();
+
+        }
+
+    }
+    */
+
+/*
+    @Transactional
+    public void deleteItem(MagicalItem item){
+
+        Optional<MagicalItem> itemToDelete = loadItem(item);
+
+        if (itemToDelete.isPresent()){
+            MagicalItem.delete("name = ?1", itemToDelete.get().getName());
+        }
+
+    }
+
+ */
 
 
 }
