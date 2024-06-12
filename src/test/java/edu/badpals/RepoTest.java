@@ -138,7 +138,7 @@ public class RepoTest {
      *
      * El metodo devueve el primer item cuyo nombre
      * coincida con el especificado.
-
+    **/
 
     @Test
     public void test_load_item() {
