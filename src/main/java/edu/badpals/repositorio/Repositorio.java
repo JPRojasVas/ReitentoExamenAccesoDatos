@@ -80,7 +80,18 @@ public class Repositorio {
 
         return Optional.ofNullable(ordenFiltrada);
 
+    }
+
+    @Transactional
+    public MagicalItem createItem(String name, int quality, String type){
+
+        MagicalItem item = new MagicalItem(name, quality, type);
+        item.persist();
+        return item;
 
     }
+
+
+
 
 }
