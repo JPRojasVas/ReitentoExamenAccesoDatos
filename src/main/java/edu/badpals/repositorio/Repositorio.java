@@ -2,7 +2,9 @@ package edu.badpals.repositorio;
 
 
 import edu.badpals.domain.MagicalItem;
+import edu.badpals.domain.Order;
 import edu.badpals.domain.Wizard;
+import edu.badpals.domain.WizardPerson;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
@@ -60,8 +62,25 @@ public class Repositorio {
 
     }
 
+    @Transactional
+    public Optional<Order> placeOrder(String wizard, String magicalItem){
+
+        Optional<Wizard> mago = Wizard.findByIdOptional(wizard);
+        Optional<MagicalItem> objeto = MagicalItem.find("name = ?1", magicalItem).firstResultOptional();
+
+        Order ordenFiltrada = null;
+
+        if (mago.isPresent() && objeto.isPresent() && mago.get().getPerson().compareTo(WizardPerson.MUDBLOOD) != 0){
+
+            Order order = new Order(loadWizard(wizard).get(), loadItem(magicalItem).get());
+
+            ordenFiltrada = order;
+            ordenFiltrada.persist();
+        }
+
+        return Optional.ofNullable(ordenFiltrada);
 
 
-
+    }
 
 }
