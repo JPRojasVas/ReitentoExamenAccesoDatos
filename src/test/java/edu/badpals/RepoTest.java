@@ -207,7 +207,7 @@ public class RepoTest {
      * El pedido se guarda en la base de datos.
      *
      * Los magos/as mudblood NO pueden comprar un item.
-
+    */
 
     @Test
     @Transactional
