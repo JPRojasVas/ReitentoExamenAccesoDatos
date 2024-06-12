@@ -45,13 +45,6 @@ public class Repositorio {
 
     }
 
-
-
-
-
-
-
-/**
     public List<MagicalItem> loadItems(String name){
 
         List<MagicalItem> items = MagicalItem.listAll();
@@ -66,5 +59,9 @@ public class Repositorio {
         return filterItems;
 
     }
-*/
+
+
+
+
+
 }
