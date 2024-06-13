@@ -13,27 +13,20 @@ public class MagicalItem extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
-    private long id;
+    private long id = 0L;
 
 
     @Column(name = "item_name")
-    private String name;
+    private String name = "";
 
     @Column(name = "item_quality")
-    private int quality;
+    private int quality = 0;
 
     @Column(name = "item_type")
-    private String type;
+    private String type = "";
 
     public MagicalItem(){
 
-    }
-
-    public MagicalItem(long id, String name, int quality, String type) {
-        this.id = id;
-        this.name = name;
-        this.quality = quality;
-        this.type = type;
     }
 
     public MagicalItem(String name, int quality, String type) {

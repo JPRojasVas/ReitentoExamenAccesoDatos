@@ -102,4 +102,18 @@ public class Repositorio {
 
     }
 
+    @Transactional
+    public void deleteItem(MagicalItem magicalItem){
+
+        Optional<MagicalItem> itemToDelete = loadItem(magicalItem);
+
+        if (itemToDelete.isPresent()){
+
+            itemToDelete.get().delete();
+
+
+        }
+
+    }
+
 }
