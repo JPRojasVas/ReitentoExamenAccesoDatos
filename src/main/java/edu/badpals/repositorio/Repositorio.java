@@ -91,32 +91,6 @@ public class Repositorio {
 
     }
 
-    /*
-    @Transactional
-    public void createItems(List<MagicalItem> listaItems){
-
-        for (MagicalItem item: listaItems) {
-
-            item.persist();
-
-        }
-
-    }
-    */
-
-/*
-    @Transactional
-    public void deleteItem(MagicalItem item){
-
-        Optional<MagicalItem> itemToDelete = loadItem(item);
-
-        if (itemToDelete.isPresent()){
-            MagicalItem.delete("name = ?1", itemToDelete.get().getName());
-        }
-
-    }
-
- */
 
 
 }
