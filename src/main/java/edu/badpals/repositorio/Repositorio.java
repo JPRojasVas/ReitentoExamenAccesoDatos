@@ -91,6 +91,15 @@ public class Repositorio {
 
     }
 
+    @Transactional
+    public void createItems(List<MagicalItem> itemList){
 
+        for (MagicalItem item : itemList){
+
+            item.persist();
+
+        }
+
+    }
 
 }
