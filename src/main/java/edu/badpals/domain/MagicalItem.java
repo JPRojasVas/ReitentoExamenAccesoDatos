@@ -2,11 +2,7 @@ package edu.badpals.domain;
 
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 
 
 @Entity
@@ -15,6 +11,7 @@ public class MagicalItem extends PanacheEntityBase {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
     private long id;
 
